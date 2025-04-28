@@ -67,7 +67,7 @@ function Ranking() {
     }
 
     return (
-        <div className="ranking section">
+        <div className="ranking section" id="ranking">
             <h1 className="ranking title">User Rankings</h1>
             <ul>
                 {rankings.map((user, index) => (

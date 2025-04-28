@@ -17,9 +17,12 @@ function App() {
                 <div className="menu-container">
                     <div className="menu">
                         <ul>
-                            <li>首頁</li>
-                            <li>排行榜</li>
-                            {/* <li></li> */}
+                            <li>
+                                <a href="#">首頁</a>
+                            </li>
+                            <li>
+                                <a href="#ranking">排行榜</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
