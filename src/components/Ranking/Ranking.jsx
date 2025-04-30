@@ -16,7 +16,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-const uids = [1623349];
+const uids = [1623349, 1234567, 1234566]; // Example uids
 
 function Ranking() {
     const [rankings, setRankings] = useState([]); // Store rankings for all uids
@@ -69,52 +69,27 @@ function Ranking() {
     return (
         <div className="ranking section" id="ranking">
             <h1 className="ranking title">User Rankings</h1>
-            <ul>
-                {rankings.map((user, index) => (
-                    <li key={index}>
-                        <p>
-                            Username: {user.username}({user.name})
-                        </p>
-                        <p>Problems Solved: {user.ac}</p>
-                        <div className="timeline solving">
-                            <p>AC in 2 Days: {user.activity[0]}</p>
-                            <p>AC in 7 Days: {user.activity[1]}</p>
-                            <p>AC in 31 Days: {user.activity[2]}</p>
-                            <p>AC in 3 Months: {user.activity[3]}</p>
-                            <p>AC in 1 Year: {user.activity[4]}</p>
-                        </div>
-                    </li>
-                ))}
-            </ul>
+            {rankings.map((user, index) => (
+                <ul>
+                    <div className={`user-${index}`}>
+                        <li key={index}>
+                            <p>
+                                Username: {user.username}({user.name})
+                            </p>
+                            <p>Problems Solved: {user.ac}</p>
+                            <div className="timeline solving">
+                                <p>AC in 2 Days: {user.activity[0]}</p>
+                                <p>AC in 7 Days: {user.activity[1]}</p>
+                                <p>AC in 31 Days: {user.activity[2]}</p>
+                                <p>AC in 3 Months: {user.activity[3]}</p>
+                                <p>AC in 1 Year: {user.activity[4]}</p>
+                            </div>
+                        </li>
+                    </div>
+                </ul>
+            ))}
         </div>
     );
 }
 
 export default Ranking;
-
-// async function readUserData() {
-//     const dbref = ref(getDatabase());
-//     get(child(dbref, `uid/`))
-//         .then((snapshot) => {
-//             if (snapshot.exists()) {
-//                 const correctData = snapshot.val();
-//                 console.log("Query Success");
-//                 console.log(correctData);
-//                 console.log(snapshot);
-//                 if (stu.idnumber === correctData.IDNUMBER) {
-//                     console.log("Data correct.");
-//
-//                 } else {
-//                     console.log("Data wrong.");
-//                     alert("學號或身分證字號錯誤");
-//                 }
-//             } else {
-//                 console.log("No data available");
-//                 alert("找不到該學號的資料");
-//             }
-//         })
-//         .catch((error) => {
-//             console.error("Error reading data: ", error);
-//             alert("伺服器發生錯誤，請稍後再試\n錯誤訊息: " + error.message);
-//         });
-// }
