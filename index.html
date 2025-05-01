@@ -5,9 +5,18 @@
         <link rel="icon" type="image/svg+xml" href="/hand.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>每天練一手</title>
+        <script src="https://www.google.com/recaptcha/api.js"></script>
     </head>
     <body>
         <div id="root"></div>
         <script type="module" src="/src/main.jsx"></script>
+        <input
+            class="btn btn-primary btn-xl"
+            id="submitButton"
+            data-sitekey="6LcPkykrAAAAABGiapiEcFbZsvFRRreED9HGoJM-"
+            type="submit"
+            data-callback="todo"
+            onclick="todo()"
+        />
     </body>
 </html>
